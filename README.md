@@ -1,5 +1,4 @@
-﻿# タイトル
-square Ver1.0  
+﻿# square ver1.0 について
 
 ## 著者
 Masuko Koeda as みるく (<http://white-stage.com/>)
@@ -82,13 +81,13 @@ RADME（解説ファイル[このファイルです。]）
 「square」フォルダをlayout/にアップロードして下さい。
 
 
-# 表示確認
+## 表示確認
 Windows 7 / Firefox39.0.3,Google Chrome44.0.2403.130,Internet Explorer 11 10 9  
 Mac OS X 10.10.4 / Firefox 39.0.3,Google Chrome44.0.2403.130,Safari 8.0.7  
 iPod touch / iOS 8.4 Safari,iPad2 / iOS 8.4 Safari,GALAXY SC-04E / Android4.4.2 標準ブラウザ・Chrome44.2.2403.133  
 
 
-# 読み上げ確認
+## 読み上げ確認
 Windows 7 / Internet Explorer 11 PC-Talker7,Firefox39.0.3 NVDA2015.1jp  
 iPad2 / iOS 8.4 Safari VoiceOver,GALAXY SC-04E / Android4.4.2 標準ブラウザ Talkback  
 
