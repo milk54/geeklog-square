@@ -1,0 +1,2125 @@
+@charset "utf-8";
+
+/*=====================================================================================================
+  タイトル: square Ver1.0
+  著者    : みるく(http://white-stage.com/)
+  説明    : 「WAIproCSS Ver2.7.1」をベースにレスポンシブWEBデザインのテーマを作成。
+            PCは2カラム,iPadとAndroidのlandscapeは中央ブロック1カラム&左右ブロック２カラムレイアウト、
+            iPod touchとAndroidのPortraitは中央ブロック&左右ブロック1カラムレイアウト。
+            434行目のdiv#container div#wrapper div#centerblocks に設定している min-height: 780px;　は、
+            左カラムのヘッダとグローバルナビゲーションを足した高さを設定しています。
+            左カラムより右カラムが高さが短くなると背景色が切れたようになってしまう為、
+            高さの最低値を指定してます。ご自分のサイトのナビゲーションの数に合わせて変更してください。
+========================================================================================================*/
+
+
+
+/*--------------------------------------
+  dsfault.css　Hypertext Module
+---------------------------------------*/
+html, body, div, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, cite, code, img, ins, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  box-sizing: border-box;
+}
+
+header,
+nav,
+main,
+article,
+footer {
+  display: block;
+  box-sizing: border-box;
+}
+
+a:link,
+a:visited {
+  color: #000080;
+}
+
+a:hover,
+a:active {
+  background: none;
+  color: #27764a;
+}
+
+a:focus {
+  background: none;
+  color: #27764a;
+  outline: 2px dotted #27764a;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img[height*="10"] {
+  height: 10px;
+}
+
+ul {
+  list-style-type: square;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+input[type*="image"]{
+  width: auto;
+}
+
+input[type='text'],
+input[type='submit'],
+input[type='password'],
+input[type='button'] {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  border: 1px solid #cccccc;
+}
+
+input[type='submit'],
+input[type='button'] {
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+hr {
+  margin: 1.5em auto;
+  border: 1px solid #bbbbbb;
+}
+
+input:focus,
+input.text:focus,
+textarea:focus {
+  background: #eef7ee;
+  border: 1px solid #52b032;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset, 0 0 8px rgba(82, 176, 50, 0.6);
+}
+
+blockquote {
+  position: relative;
+  margin: 10px;
+  padding: 30px;
+  background: #f4f4f4;
+  border: 1px solid #cccccc;
+  word-wrap: break-word;
+} 
+
+blockquote:before {
+  position : absolute;
+  top : 10px;
+  left : 10px;
+  width : 22px;
+  height : 14px;
+  background: url(images/custom/blockquote_t.gif) no-repeat 0 0;
+  content: '';
+  font-size: 3em;
+  color: #808080
+}
+
+blockquote:after {
+  position : absolute;
+  bottom : 30px;
+  right : 30px;
+  width : 22px;
+  height : 14px;
+  background: url(images/custom/blockquote_b.gif) no-repeat 0 0;
+  content: '';
+  font-size: 3em;
+  color: #808080;
+}
+
+
+
+/*--------------------------------------
+  [BASE] layout.css
+---------------------------------------*/
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 90%;
+  font-family: 'メイリオ',Meiryo,'ＭＳ Ｐゴシック','Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','Trebuchet MS',Arial,Helvetica,sans-serif;
+}
+
+div#container {
+  max-width: 1920px;
+  min-width: auto;
+  width: auto;
+  border: none;
+}
+
+/*---- #side (ヘッダとナビゲーションブロックを包含します。)----*/
+#side {
+  float: left;
+  width: 19%;
+  padding: 1%;
+}
+
+/*----- ヘッダ -----*/
+div#container #header {
+  margin: 0 auto;
+  padding: 0;
+  background: #ffffff;
+  color: #000000;
+}
+
+div#container #header h1.site_name {
+  display: block; 
+  float: none;
+  margin: 0.1em 0 0 0.5em;
+}
+
+div#container #header h1.site_name a {
+  color: #000000;
+  text-decoration: none;
+  font-family: 'Yeseva One',cursive,'MS 明朝','MS P明朝','細明朝体','ヒラギノ明朝 Pro W3','Hiragino Mincho Pro';
+  font-weight: 800;
+}
+
+div#container #header p.site_slogan {
+  padding: 0 0 1.7em 1.3em;
+  color: #222222;
+}
+
+div#container #header p.welcome_msg {
+  position: relative; /* IE6,7 */
+  margin: -1.1em 0 0 0.9em;
+}
+
+div#container #header p.welcome_msg a{
+  color: #222222;
+}
+
+/*----- ナビゲーション -----*/
+div#container #navigation {
+  margin: 0;
+  padding: 0.1% 0;
+  background: none;
+}
+
+div#container #navigation h2 {
+  display: none;
+}
+
+div#container #navigation ul {
+  margin-top: 8%;
+  padding: 0 10%;
+  list-style: none;
+}
+
+div#container #navigation ul li,
+div#container #navigation ul li.menuitem {
+  float: none;
+  margin: 18px 0;
+  padding-bottom: 8px;
+  border-top: none;
+  border-bottom: 1px dotted #000000;
+}
+
+div#container #navigation ul li:last-child,
+div#container #navigation ul li.menuitem:last-child {
+  border-right: none;
+}
+
+div#container #navigation ul li.menuitem a,
+div#container #navigation ul li.menuitem a:link,
+div#container #navigation ul li.menuitem a:visited,
+div#container #navigation ul li a,
+div#container #navigation ul li a:link,
+div#container #navigation ul li a:visited {
+  padding: 0;
+  line-height: 1.5;
+  color: #000000;
+  text-decoration: none;
+}
+
+div#container #navigation ul li a:hover,
+div#container #navigation ul li a:active,
+div#container #navigation ul li.menuitem a:hover,
+div#container #navigation ul li.menuitem a:active {
+  background-color: transparent;
+  color: #5b791e;
+}
+
+div#container #navigation ul li a:focus,
+div#container #navigation ul li.menuitem a:focus {
+  background-color: transparent;
+  color: #5b791e;
+  outline: 2px dotted #5b791e;
+}
+
+/* clone nav for hamburger nav */
+.s_nav_btn,
+.v-h {
+  display: none;
+}
+
+/*----- フッタ -----*/
+div#container #footer {
+  clear: both;
+  margin: 0 auto;
+  padding: 10px 0;
+  background: #492825;
+  color: #ffffff;
+}
+
+div#container #footer a,
+div#container #footer a:link,
+div#container #footer a:visited {
+  color: #ffffff;
+}
+
+div#container #footer a:hover,
+div#container #footer a:focus,
+div#container #footer a:active {
+  color: #acc084;
+}
+
+div#container #footer a:focus {
+  outline: 2px dotted #acc084;
+}
+
+div#container #footer ul {
+  margin: 0;
+}
+
+div#container #footer ul li {
+  display: inline-block;
+  margin-bottom: 0;
+  list-style: outside none none;
+}
+
+div#container #footer ul li.powered_by,
+div#container #footer ul li.execution_textandtime {
+  margin-left: 4px;
+}
+
+/* ページの先頭へ戻る */
+div#container #footer p.back, div#footer p.back {
+  margin: 0 40px 0 0;
+  text-align: right;
+
+}
+
+div#container #footer p.back a {
+  padding: 10px 10px 8px 15px;
+  border-bottom: none;
+  background: none;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+}
+
+div#container #footer p.back a:before {
+  position :relative;
+  top: 3px;
+  left : -6px;
+  width : 0;
+  height : 0;
+  content : "^";
+  color: #ffffff;
+}
+
+div#container #footer p.back a:hover,
+div#container #footer p.back a:focus,
+div#container #footer p.back a:hover:before,
+div#container #footer p.back a:focus:before {
+  color: #acc084;
+}
+
+div#container #footer p.back a:focus {
+  outline: 2px dotted #acc084;
+}
+
+/*----- ラッパー -----*/
+body.left-center-right div#container div#wrapper {
+  overflow: visible;
+  float: none;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+body.left-center div#container div#wrapper {
+  overflow: visible;
+  float: none;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+body.center-right div#container div#wrapper {
+  overflow: visible;
+  float: none;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+body.center div#container div#wrapper {
+  overflow: visible;
+  float: none;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+body.js_off div#container div#wrapper {
+  overflow: visible;
+  float: none;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+
+
+/*--------------------------------------
+  [BASE] form.css
+---------------------------------------*/
+
+div#leftblocks div#block-left-search {
+  float: left;
+  width: 16.7%;
+  margin-left: -6px;
+  margin-top: 10px;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+div#leftblocks div#block-left-search form#searchform fieldset {
+  padding-left: 0;
+}
+
+div#leftblocks div#block-left-search form#searchform ul {
+  margin: 0 0 5px;
+}
+
+div#leftblocks div#block-left-search form#searchform ul li {
+  border-bottom: none;
+}
+
+div#leftblocks div#block-left-search form#searchform ul li input:focus {
+  border: 1px solid #52b032;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset, 0 0 8px rgba(82, 176, 50, 0.6);
+}
+
+div#leftblocks div#block-left-search form#searchform ul li input.submit {
+  margin-left: 8px;
+  padding: 4px 6px;
+  background: #f0f0f0;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+div#leftblocks div#block-left-search form#searchform ul li input.submit:focus {
+  border: 1px solid #52b032;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset, 0 0 8px rgba(82, 176, 50, 0.6);
+}
+
+div#leftblocks div#block-left-search a {
+  color: #ffffff;
+}
+
+div#leftblocks div#block-left-search a:hover,
+div#leftblocks div#block-left-search a:focus,
+div#leftblocks div#block-left-search a:active {
+  color: #acc084;
+}
+
+
+
+/*--------------------------------------
+  [BASE] block.css
+---------------------------------------*/
+
+/*----- 中央ブロック -----*/
+div#container div#wrapper div#centerblocks {
+  float: right;
+  width: 81%;
+  min-height: 780px;
+  padding: 2.1% 2% 1.8%;
+  background-color: #f4f0ee;
+  word-wrap: break-word;
+
+}
+
+/*-- トップページのみ表示するイメージ画像 --*/
+.top-image {
+  float: right;
+  width :81%;
+  background-color: #f4f0ee;
+}
+
+/* パンくずリスト */
+.bc_navigation {
+  margin: 0 0 1.12em;
+}
+
+/*-- 記事 --*/
+div#centerblocks div.featuredstorytext,
+div#centerblocks div.storytext,
+div#centerblocks div.archivestorytext {
+  float: left;
+  width: 32%;
+  margin-left: 1%;
+  padding: 1em 1.5em 2em;
+  background: #ffffff;
+  border: 10px solid #eeeae1;
+  word-wrap: break-word;
+  box-shadow:rgba(66, 67, 69, 0.56) 0px 0px 1px 0px;
+}
+
+
+body.left-center div#centerblocks div.featuredstorytext,
+body.left-center div#centerblocks div.storytext,
+body.left-center div#centerblocks div.archivestorytext,
+body.center-right div#centerblocks div.featuredstorytext,
+body.center-right div#centerblocks div.storytext,
+body.center-right div#centerblocks div.archivestorytext,
+body.center div#centerblocks div.featuredstorytext,
+body.center div#centerblocks div.storytext,
+body.center div#centerblocks div.archivestorytext,
+body.js_off div#centerblocks div.featuredstorytext,
+body.js_off div#centerblocks div.storytext,
+body.js_off div#centerblocks div.archivestorytext{
+  float: none;
+  width: auto;
+  margin-left: 0;
+}
+
+
+div#centerblocks div.featuredstorytext h2,
+div#centerblocks div.storytext h2,
+div#centerblocks div.archivestorytext h2 {
+  float: none;
+  padding: 0;
+  border-bottom:1px solid #ebebeb;
+  color: #222222;
+  font-size: 1.5em;
+}
+
+div#centerblocks div.featuredstorytext h2 a,
+div#centerblocks div.storytext h2 a,
+div#centerblocks div.archivestorytext h2 a {
+  color: #222222;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+div#centerblocks div.featuredstorytext h2 a:hover,
+div#centerblocks div.storytext h2 a:hover,
+div#centerblocks div.archivestorytext h2 a:hover {
+  background-color: transparent;
+  color: #5b791e;
+}
+div#centerblocks div.featuredstorytext h2 a:focus,
+div#centerblocks div.storytext h2 a:focus,
+div#centerblocks div.archivestorytext h2 a:focus {
+  background-color: transparent;
+  color: #5b791e;
+  outline: 2px dotted #5b791e;
+}
+
+div#centerblocks div.featuredstorytext ul.status li,
+div#centerblocks div.storytext ul.status li,
+div#centerblocks div.archivestorytext ul.status li {
+  float: left;
+  margin: 0 0 1em;
+}
+
+div#centerblocks div.featuredstorytext ul.status li dl dt,
+div#centerblocks div.storytext ul.status li dl dt,
+div#centerblocks div.archivestorytext ul.status li dl dt {
+  margin-left: 8px;
+}
+
+div#centerblocks div.featuredstorytext div.story_introtext,
+div#centerblocks div.storytext div.story_introtext,
+div#centerblocks div.archivestorytext div.story_introtext {
+    clear: both;
+}
+
+div#centerblocks h3 {
+  padding: 5px;
+  border-bottom: 1px dotted #f3f3f3;
+}
+
+div.block-related,
+div.block-related,
+div#trackback {
+  padding: 0.6em;
+}
+
+ul.list-whats-related,
+ul.list-story-options {
+  list-style-type: square;
+}
+
+/* ペジャー */
+div.gl-pagenav {
+  clear: both;
+}
+
+div.pagenav ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+div.pagenav ol li {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+div.gl-pagenav b {
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  box-shadow: none;
+  line-height: 1.7;
+}
+
+div.gl-pagenav a {
+  margin: 8px;
+  padding: 8px;
+  background: #faebd7;
+  border: 1px solid #f0c488;
+  box-shadow: none;
+  text-decoration: none;
+  line-height: 4;
+}
+
+div.gl-pagenav a:hover {
+  background: #ffe4cb;
+  text-decoration: none;
+}
+
+div.gl-pagenav span {
+  padding: 8px;
+  line-height: 1.7;
+}
+
+div.gl-pagenav span a { 
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  text-decoration: underline;
+}
+
+div.gl-pagenav span a:hover {
+  background: transparent;
+  text-decoration: underline;
+
+}
+
+/* 掲示板のページナビに影響を与えないようにする[ */
+table div.pagenav b {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  line-height: 1.5;
+}
+
+table div.pagenav a {
+  display: inline;
+  margin: 0 5px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
+
+table div.pagenav a:hover {
+  background: transparent;
+}
+
+table div.pagenav span {
+  display: inline;
+  padding: 0;
+  line-height: 1.5;
+}
+/* 掲示板のページナビに影響を与えないようにする] */
+
+/*----- 静的ページ -----*/
+div#centerblocks div.block-center {
+  clear: both;
+  margin: 0 auto 20px;
+  padding: 1em 1.5em 2em;
+  background: #ffffff;
+  border: 10px solid #eeeae1;
+  box-shadow:rgba(66, 67, 69, 0.56) 0px 0px 1px 0px;
+}
+
+div#centerblocks h2,
+div#centerblocks div.block-center h2 {
+  margin: 0 0 1em;
+  padding:0;
+  border-bottom: 1px solid #ebebeb;
+  color: #222222;
+  font-size: 1.7em;
+}
+
+/*---- 管理画面 ----*/
+body.left-center div#centerblocks div.featuredstorytext,
+body.left-center div#centerblocks div.storytext,
+body.left-center div#centerblocks div.archivestorytext {
+  height: auto !important;
+}
+
+.block-center-content input {
+  width: auto;
+}
+
+#commentarea input[type="submit"] {
+  width: auto;
+}
+
+.block-center-content input[type="submit"] {
+  width: 10%;
+}
+
+#pingform  input {
+  width: auto;
+}
+
+#admin-instructions {
+  overflow: hidden;
+}
+
+/* ユーザー情報 preferences.css */
+form#profile #save_button input[type='submit'] {
+  width: 10%;
+}
+
+/*----- システムメッセージ -----*/
+div#centerblocks div.block-message {
+  margin: 2em 0;
+  border: 8px solid #f2ecbd;
+}
+
+div#centerblocks div.block-message dl dt {
+  background: #556b2f;
+}
+
+div#centerblocks div.block-message dl dd {
+  background: #fafafa;
+}
+
+/*----- sub_navブロック(左右ブロックを包含します。) -----*/
+div#container div#wrapper div#sub_nav {
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 1.8%;
+  width: 100%;
+  background: #613532;
+}
+
+/*----- 左右ブロック -----*/
+div#leftblocks {
+  width: 95%;
+  margin: 0 auto;
+}
+
+div#leftblocks div.block-left,
+div#rightblocks div.block-right {
+  float:left;
+  width: 15%;
+  margin: 1.4em 0.9em 0.6em 1em;
+  padding: 0;
+  border: none;
+  color: #ffffff;
+}
+
+div#leftblocks div.block-list {
+  float: left;
+  width: 15%;
+  margin: 1.4em 0.9em 0.6em 1em;
+  padding: 0;
+  border: none;
+  color: #ffffff;
+}
+
+div#leftblocks div.block-left h2,
+div#rightblocks div.block-right h2,
+div#leftblocks div.block-list h2 {
+  margin: 0 0 .5em;
+  padding: 0;
+  word-wrap: break-word;
+  color: #ffffff;
+}
+
+div#leftblocks ul,
+div#leftblocks ol,
+div#rightblocks ul,
+div#rightblocks ol {
+  margin: 0 0 1.12em;
+}
+div#leftblocks p,
+div#rightblocks p {
+  margin: 0 0 1.12em;
+}
+
+div#leftblocks div.block-left div.block-left-content,
+div#rightblocks div.block-right div.block-right-content {
+  margin: 3px 5px 5px;
+}
+
+div#leftblocks div.block-left div.block-left-content a,
+div#rightblocks div.block-right div.block-right-content a {
+  color: #ffffff;
+}
+
+div#leftblocks div.block-left div.block-left-content a:hover,
+div#leftblocks div.block-left div.block-left-content a:focus,
+div#leftblocks div.block-left div.block-left-content a:active,
+div#rightblocks div.block-right div.block-right-content a:hover,
+div#rightblocks div.block-right div.block-right-content a:focus,
+div#rightblocks div.block-right div.block-right-content a:active {
+  color: #acc084;
+}
+
+div#leftblocks div.block-left div.block-left-content a:focus,
+div#rightblocks div.block-right div.block-right-content a:focus {
+  outline: 2px dotted #acc084;
+}
+
+div#container div#wrapper div#rightblocks,
+body.center-right div#container div#wrapper div#rightblocks,
+body.js_off div#container div#wrapper div#rightblocks {
+  clear: both;
+  float: none;
+  width: 95%;
+  margin: 0 auto;
+  background: none;
+}
+
+div#leftblocks ul li,
+div#leftblocks ol li,
+div#rightblocks ul li,
+div#rightblocks ol li {
+  position: relative;
+  padding: 5px;
+}
+
+li.topicoption a {
+  color: #ffffff;
+}
+
+li.adminoption a,
+li.adminoption a:link,
+li.adminoption a:visited {
+  color: #ffffff;
+}
+
+li.useroption a,
+li.useroption a:link,
+li.useroption a:visited {
+  color: #ffffff;
+}
+
+li.topicoption a:hover,
+li.topicoption a:focus,
+li.topicoption a:active {
+  color: #acc084;
+}
+
+li.topicoption a:focus {
+  outline: 2px dotted #acc084;
+}
+
+li.adminoption a:hover,
+li.adminoption a:focus,
+li.adminoption a:active {
+  color: #acc084;
+}
+
+li.adminoption a:focus {
+  outline: 2px dotted #acc084;
+}
+
+li.useroption a:hover,
+li.useroption a:focus,
+li.useroption a:active {
+  color: #acc084;
+}
+
+li.useroption a:focus {
+  outline: 2px dotted #acc084;
+}
+
+form#loginform ul.submit li {
+  border-bottom: none;
+  padding: 0;
+}
+
+#loginform input.submit {
+  margin-top: 8px;
+  padding-top: 2px;
+}
+
+form#loginform ul.navi li {
+  margin-top: 5px;
+  border-bottom: none;
+}
+
+/* 過去記事 */
+div#leftblocks ul.list-older-stories,
+div#rightblocks ul.list-older-stories {
+  margin: 2px;
+}
+
+div#leftblocks ul.list-older-stories li,
+div#rightblocks ul.list-older-stories li {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+div#leftblocks ul.list-older-stories li a,
+div#rightblocks ul.list-older-stories li a {
+  color: #ffffff;
+}
+
+/* アンケート */
+div.poll-questions {
+  background: transparent;
+}
+
+/* リンク */
+.links-dropdown input[type='submit'] {
+  width: auto;
+  margin-left: 8px;
+}
+
+/* ユーザー情報 */
+#pe_preview,
+#pe_namepass,
+#pe_userinfo,
+#pe_layout,
+#pe_content,
+#pe_privacy {
+  background: #f4f4f4;
+}
+
+/* ログビューワー */
+.block-center-content input[name='viewlog'],
+.block-center-content input[name='clearlog'] {
+  width: auto;
+}
+
+/* lists.css */
+table.admin-list {
+  margin-bottom: 20px;
+}
+
+
+
+/*--------------------------------------
+  configuration.css
+---------------------------------------*/
+
+table#arr_table td input.opt {
+  width: 270px !important;
+}
+
+div#geeklog_config_editor div.block-bg-left div.block-center {
+  margin-left: 8px;
+}
+
+div#centerblocks #config_menu div.block-center {
+  margin-bottom: 20px;
+  padding: 1em 1.5em 2em;
+  border-bottom: 10px solid #eeeae1;
+}
+
+div#centerblocks #config_menu .block-center .block-center-content {
+  padding-left: 0;
+  border-bottom: none;
+}
+
+div#centerblocks #config_menu .block-center .block-center-content .block-config-content {
+  padding: 0 .3em;
+}
+
+#config_main #bottom_buttons input {
+  width: 20%;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+#config_menu {
+  width: 17%;
+}
+
+#config_content {
+  width: 60%;
+}
+
+#search-configuration-container {
+  border-bottom: none;
+}
+
+#search-configuration {
+  margin: 0;
+}
+
+
+
+/*--------------------------------------
+  jquery_ui/jquery.ui.geeklog.css
+---------------------------------------*/
+
+.saved_message {
+  clear: both;
+}
+
+
+
+/*--------------------------------------
+  comment.css
+---------------------------------------*/
+
+.skip a:focus,
+.skip a:hover,
+.skip a:active {
+  height: 4em;
+  left: 170px;
+}
+
+div.comments div.block-comment-content ul.status {
+  background: #fffff7;
+  border: 1px solid #ffffd7;
+}
+
+div.comments div.block-comment-content ul.status li.title {
+  background: transparent;
+  border: none;
+}
+
+div.comments div.block-comment-content ul.status li.author {
+  padding: 4px;
+}
+
+div.comments div.block-comment-content div.comment {
+  position: relative;
+  width: auto;
+  margin: 20px 10px 40px;
+  padding: 5px;
+  background: #fff5ee;
+  border: 1px solid #ffe1ce;
+  color: #000000;
+}
+
+div.comments div.block-comment-content div.comment:before {
+  position : absolute;
+  top : -40px;
+  left : 30px;
+  right: auto;
+  width : 0;
+  height : 0;
+  content : "";
+  border-width : 20px;
+  border-style : solid;
+  border-color : transparent transparent #ffe1ce;
+}
+
+div.comments div.block-comment-content div.comment:after {
+  position : absolute;
+  top : -39px;
+  left : 30px;
+  width : 0;
+  height : 0;
+  content : "";
+  border-width : 20px;
+  border-style : solid;
+  border-color : transparent transparent #fff5ee;
+}
+
+form#banform {
+  overflow: hidden;
+}
+
+#editor_exposition {
+  display: none;
+}
+
+div#admin-instructions p, div#admin-instructions div {
+  overflow: hidden;
+}
+
+
+
+/*--------------------------------------
+  trackback.css
+---------------------------------------*/
+
+div.formattedcomment ul.status {
+  margin: 1em 0 0.5em;
+  padding: 4px;
+  background: #f7f7f7;
+}
+
+div.formattedcomment ul.status li.title {
+  background: transparent;
+  border: none;
+}
+
+div.formattedcomment p.trackback_excerpt_readmore {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+
+/*-------------------------------------------------
+  掲示板ログイン時対応・画像幅修正
+---------------------------------------------------*/
+
+table.pluginCellTitle td.pluginCellText {
+  font-size: 70%;
+}
+
+table td img[src*="/nav_breadcrumbs.png"],
+table td img[src*="/newposts.png"],
+table td img[src*="/busyforum.png"],
+table td img[src*="/quietforum.png"],
+table.pluginHeader td img,
+table.pluginSolidOutline td.pluginCol img {
+  max-width: none;
+}
+
+
+
+/*-------------------------------------------------
+  アンケート　compatible.css
+---------------------------------------------------*/
+
+.pluginRow2 td.poll_answer_bar {
+  border-left: 5px solid #f7f7f7;
+}
+
+
+
+/*-------------------------------------------------
+  Navigation Manager - Navman プラグイン
+  プルダウンメュー部分　navman.css
+---------------------------------------------------*/
+
+#navigation .navi_001 {
+  width: auto;
+  height: auto;
+}
+
+#navigation .navi_001 ul.top li a.level1 {
+  float: none;
+  margin: 0;
+}
+
+#navigation .navi_001 ul.top *:hover ul.sub1 {
+  top: 20px;
+}
+
+div#container div#navigation div.navi_001 ul.top *:hover ul.sub1 li {
+  height: auto;
+  padding-bottom: 8px;
+  text-align: left;
+}
+
+div#container div#navigation ul li ul.sub1 li,
+div#container div#navigation ul li.menuitem ul.sub1 li {
+  border-right: none;
+}
+
+div#container div#navigation .navi_001 ul.top *:hover ul.sub1 li a {
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* サイド プルダウンメュー部分　navman.css */
+div#leftblocks ul.top li {
+  border-bottom: none;
+}
+
+div#leftblocks .bnavi_001 ul.top {
+  width: 100%;
+}
+
+div#leftblocks .bnavi_001 ul.top li.level1 {
+  float: none;
+  width: 100%;
+}
+
+
+
+/*-------------------------------------------------
+  smaller than 785px
+---------------------------------------------------*/
+
+@media screen and (max-width: 785px) {
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  width: auto;
+}
+
+div#container #header,
+div#container #navigation,
+div#container #footer,
+body.left-center-right div#container div#wrapper,
+body.left-center div#container div#wrapper,
+body.center-right div#container div#wrapper,
+body.center div#container div#wrapper,
+body.js_off div#container div#wrapper,
+div#container div#wrapper div#sub_nav {
+  width: auto;
+}
+
+#side {
+  float: none;
+  padding: 0;
+  width: auto;
+}
+
+div#container div#wrapper div#centerblocks {
+  margin-top: -15px;
+  padding-top: 3.5%;
+  width: 100%;
+  min-height: 10%;
+}
+
+div#leftblocks div#block-left-search {
+  margin-left: 0;
+  margin-right: 1.7em;
+}
+
+div#leftblocks div#block-left-search,
+div#leftblocks div.block-left,
+div#rightblocks div.block-right,
+div#leftblocks div.block-list {
+  width: 45%;
+}
+
+div#leftblocks div:nth-child(4),
+div#leftblocks div:nth-child(6),
+div#leftblocks div:nth-child(8),
+div#rightblocks div:nth-child(3),
+div#rightblocks div:nth-child(5),
+div#rightblocks div:nth-child(7) {
+  clear: both;
+}
+
+div#leftblocks div#block-left-search form#searchform ul li input.submit {
+  width: 120px;
+}
+
+/* header */
+div#container #header h1.site_name {
+  margin: 0 0 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.site_message {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: auto;
+  background: #284b68;
+  z-index: 1;
+  text-align: center;
+  color: #ffffff;
+}
+div#container #header p.site_slogan,
+div#container #header p.welcome_msg {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 38%;
+  color: #ffffff;
+}
+
+
+/* main */
+.top-image {
+  display: none;
+}
+
+div#centerblocks div.featuredstorytext,
+div#centerblocks div.storytext,
+div#centerblocks div.archivestorytext {
+  float: none;
+  width: auto;
+  height: auto !important;
+}
+
+input[type*="submit"],
+input[type*="button"],
+input[type*="file"] {
+  width: auto;
+  height: 30px;
+  margin-right: 10px;
+  padding-top: 2px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[name*="cmd105"],
+input[name*="cmd107"],
+input[name*="cmd108"] {
+  width: 210px;
+  height: 30px;
+}
+
+input[name*="cmd8"] {
+  width: 310px;
+  height: 30px;
+}
+
+#save_changes,
+#form_reset {
+  margin-right: 10px;
+}
+
+div.submit input[type="submit"] {
+  padding: 10px 10px 30px;
+  width: 20%;
+}
+
+/* 検索オプション */
+#advsearchform #advsearchform-query {
+ width: 70%;
+}
+
+#advsearchform dd label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ログインボタン */
+#loginform input.submit {
+  padding: 10px 10px 30px;
+}
+
+/* sub_nav */
+div#container div#wrapper div#sub_nav {
+  padding-bottom: 1.8%;
+  background: #ffffff;
+  color: #000000;
+} 
+
+body.center div#container div#wrapper div#sub_nav {
+  display: none;
+}
+
+div#leftblocks div.block-left,
+div#rightblocks div.block-right,
+div#leftblocks div.block-list,
+div#leftblocks div.block-left div.block-left-content a,
+div#rightblocks div.block-right div.block-right-content a,
+div#leftblocks div.block-left h2,
+div#rightblocks div.block-right h2,
+div#leftblocks div.block-list h2,
+div#leftblocks div#block-left-search a,
+div#leftblocks div#block-left-search a:link,
+div#leftblocks div#block-left-search a:visited,
+li.topicoption a,
+li.topicoption a:link,
+li.topicoption a:visited,
+li.adminoption a,
+li.adminoption a:link,
+li.adminoption a:visited,
+li.useroption a,
+li.useroption a:link,
+li.useroption a:visited {
+  color: #000000;
+}
+
+div#leftblocks div.block-left div.block-left-content a:hover,
+div#leftblocks div.block-left div.block-left-content a:focus,
+div#leftblocks div.block-left div.block-left-content a:active,
+div#rightblocks div.block-right div.block-right-content a:hover,
+div#rightblocks div.block-right div.block-right-content a:focus,
+div#rightblocks div.block-right div.block-right-content a:active,
+div#leftblocks div#block-left-search a:hover,
+div#leftblocks div#block-left-search a:focus,
+div#leftblocks div#block-left-search a:active,
+li.topicoption a:hover,
+li.topicoption a:focus,
+li.topicoption a:active,
+li.adminoption a:hover,
+li.adminoption a:focus,
+li.adminoption a:active,
+li.useroption a:hover,
+li.useroption a:focus,
+li.useroption a:active {
+  color: #27764a;
+}
+
+div#leftblocks div#block-left-search form#searchform ul li input.submit {
+  margin-left: 0;
+  padding: 10px;
+  height: auto;
+}
+
+/* footer */
+div#container #footer p.back a,
+div#container #footer p.back a::before {
+  color: #000000;
+}
+
+div#container #footer p.back a:hover,
+div#container #footer p.back a:focus,
+div#container #footer p.back a:hover:before,
+div#container #footer p.back a:focus:before {
+  color: #27764a;
+}
+
+div#container #footer {
+  background: #f6f6f6;
+  color: #000000;
+}
+
+div#container #footer a,
+div#container #footer a:link,
+div#container #footer a:visited {
+  color:#000000;
+}
+
+div#container #footer a:hover,
+div#container #footer a:focus,
+div#container #footer a:active {
+  color: #27764a;
+}
+
+/* common.css */
+input,
+textarea,
+select {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: auto;
+}
+
+select {
+  height: 42px;
+}
+
+input[type*="radio"],
+input[type*="checkbox"] {
+  width: 20px;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="password"] {
+  padding: 10px;
+}
+
+input[type="submit"] {
+  padding: 8px 10px 30px;
+}
+
+p.skip,
+.skip a:focus,
+.skip a:hover,
+.skip a:active {
+  display: none;
+}
+
+fieldset {
+  width: 95%;
+}
+
+/* story.css */
+div.warningsmall,
+span.warningsmall,
+.warningsmall {
+  width: 80%;
+}
+
+/* リンク投稿*/
+form table input,
+form table textarea,
+form table select {
+  width: 100px;
+}
+
+/* ログイン */
+#registrationform-email,
+#registrationform-email_conf,
+#getpasswordform-email {
+  width: 80%;
+}
+
+/* コンフィギュレーション*/
+#config_content,
+#config_main,
+#config_main form,
+.ui-tabs {
+  width: auto;
+}
+
+#config_menu {
+  float: none;
+  width: auto;
+}
+
+#config_content {
+  width: 100%;
+}
+
+#config_main #bottom_buttons input {
+  padding: 10px 10px 30px;
+}
+
+.ui-tabs,
+.ui-tabs-nav li {
+  font-size: 100%;
+}
+
+.config_name input[type="text"],
+.config_name textarea {
+  width: 43%;
+}
+
+table.inputTable input.opt,
+table.inputTable select.opt,
+table.inputTable textarea.opt {
+  width: 80% !important;
+}
+
+table.inputTable select[name*="sort_admin"],
+table.inputTable select[name*="show_right_blocks"],
+table.inputTable select[name*="showfirstasfeatured"],
+table.inputTable select[name*="add_drop_table"],
+table.inputTable select[name*="compress_data"],
+table.inputTable select[name*="download_as_file"],
+table.inputTable select[name*="comment_mode"],
+table.inputTable select[name*="comment_code"],
+table.inputTable select[name*="comment_edit"],
+table.inputTable select[name*="commentsubmission"],
+table.inputTable select[name*="article_comment_close_enabled"],
+table.inputTable select[name*="allow_reply_notifications"],
+table.inputTable select[name*="keep_unscaled_image"],
+table.inputTable select[name*="allow_user_scaling"],
+table.inputTable select[name*="debug_image_upload"],
+table.inputTable select[name*="use_gravatar"],
+table.inputTable select[name*="rootdebug"] {
+  width: 80px !important;
+}
+
+.config_name input[type*="button"] {
+  padding: 10px 10px 30px;
+  width: 100px;
+}
+
+/* tabUI jquery-ui.css */
+.ui-tabs-nav li a {
+  font-size: 70%;
+}
+
+.ui-widget select.opt {
+  width: 50% !important;
+}
+
+#tab-0 .config_name select.opt,
+#tab-7 .config_name select.opt,
+#tab-8 .config_name select.opt,
+#tab-16 .config_name select.opt,
+#tabs .config_name select.opt {
+  padding: 10px 10px 20px;
+  height: 4em;
+}
+
+/* ペジャー */
+div.pagenav ol li {
+  margin-bottom: 15px;
+}
+
+div.pagenav a {
+  line-height: 4;
+}
+
+/* 記事投稿 コメント投稿 */
+form#admin-storyeditor_advanced div#text_editor,
+form#admin-storyeditor_advanced div#html_editor,
+form#commentform_advanced  div#html_editor {
+  width: 100% !important;
+}
+
+#submitstory_advanced #submitstory_advanced-title {
+  width: 80%;
+}
+
+form.compact dl {
+  overflow: visible; /* 幅がおかしくなったらこれ消す！ */
+}
+
+form.compact dl dt,
+form.compact dl dd {
+  float: none;
+  width: auto;
+}
+
+#editor_exposition {
+  display: block;
+}
+
+#flickable1 {
+  overflow: auto;
+  width: 100%;
+  height: 350px;
+  margin-bottom: 8px;
+  border: 1px solid #CCC;
+}
+
+#flickable1 .ui-flickable-container {
+  width:504px;
+  cursor: pointer;
+}
+
+#flickable1.comment_area {
+  width: 280px !important;
+}
+
+#sel_editmode {
+  width: 20%;
+}
+
+#se_publish select[name='featured'] {
+  width: 100px;
+}
+
+/* 静的ページの編集 */
+#sp-advanced_editor .form_block select[name='sp_where'] {
+  width: 150px;
+}
+
+/* 管理画面チェックボックス部分 */
+.admin_basic dd label {
+  display: inline-block;
+  width: 29%;
+  vertical-align: top;
+}
+
+.admin_basic dd label input[type*="checkbox"] {
+  margin-right: 5%;
+}
+
+/* 管理画面ボタン部分 */
+.block-center-content .submit input[type="submit"],
+.block-center-content .submit input[type="button"] {
+  padding: 15px 20px 35px;
+  width: auto;
+}
+
+/* ブロックの編集 */
+#admin-blockeditor select {
+  width: 150px;
+}
+
+#admin-blockeditor #admin-blockeditor-onleft {
+  width: 80px;
+}
+
+/* アンケート */
+div#advanced_editor form table td  input{
+  width: 80px;
+}
+
+/* リンク投稿 */
+.size5,
+.size6 {
+  width: auto;
+}
+
+/* パーミッション */
+table#admin-permissions {
+  width: 80%;
+}
+
+table#admin-permissions input.checkbox {
+  width: auto;
+}
+
+/* lists.css */
+table.admin-list tr td input {
+  width: 10px;
+}
+
+/* カレンダー */
+.cal-body {
+  font-size: 79%;
+}
+
+.cal-body input[type="submit"] {
+  padding: 10px 10px 30px;
+}
+
+.smallcal {
+  padding: 0;
+  font-size: 75%;
+}
+
+.block-center-content input[type="submit"] {
+  padding: 10px 20px 30px;
+  width: auto;
+}
+
+#calendar-eventeditor-postmode {
+  width: 150px;
+}
+
+.ui-datepicker-trigger {
+  vertical-align: top;
+}
+
+.form-theme .form-field input[type="text"],
+.form-theme .form-field textarea {
+  width: 80%;
+}
+
+.cal-weekpointers {
+  width: 1%;
+}
+
+/* フィードの編集 */
+#admin-feededitor select[name='limits_in'] {
+  margin-left: 8px;
+  width: 150px;
+}
+
+/* ユーザー情報 preferences.css */
+form#profile #pe_content input {
+  width: auto;
+}
+
+/* グループの編集 group.css */
+form#admin-groupeditor dl dd table tr td,
+form#admin-groupeditor dl dd table tr td span {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.admin-list-field input {
+  width: auto;
+}
+
+dl.authority input {
+  width: auto;
+}
+
+form#admin-groupmembers dl {
+  width: 50%;
+}
+
+form#admin-groupmembers ul.move {
+  width: 50%;
+}
+
+form#admin-groupmembers ul.move input {
+  padding: 8px 10px 30px;
+  width: 100px;
+}
+
+/* トラックバック管理 lists.css */
+table.admin-list tr td {
+  word-break: break-all;
+}
+
+/* sitemapプラグイン管理 common.css */
+fieldset[style*="width: 600px"] {
+  width: auto !important;
+}
+
+/* ファイル管理　管理者メニュー compatible.css */
+.plugin td[style*="white-space"] {
+  white-space: pre-wrap !important;
+}
+
+/* 日本語化 */
+div[style*="min-width"] {
+  min-width: 0 !important;
+  width: 80% !important;
+}
+
+input[name*="cmd8"] {
+  width: 220px;
+  height: 30px;
+}
+
+/* CAPTCHA 管理画面 */
+form#captcha select {
+  width: 150%;
+}
+
+form#captcha input {
+  width: 100%;
+}
+
+form#captcha input[type*="text"] {
+  width: 150%;
+}
+
+form#captcha input#sister_mes_a,
+form#captcha input#sister_mes_b,
+form#captcha input#sister_len_min,
+form#captcha input#sister_len_max,
+form#captcha input#sister_outlen {
+  width: 200%;
+}
+
+form#captcha select#sister_image,
+form#captcha select#sister_font {
+  width: 200%;
+}
+
+form#captcha input#new_sister_image,
+form#captcha input#new_sister_font,
+form#captcha input#sister_fsize,
+form#captcha input#sister_fx,
+form#captcha input#sister_fy {
+  width: 100%;
+}
+
+form#captcha textarea#sister_words,
+form#captcha textarea#sister_css {
+  min-width: 0 !important;
+  width: 220% !important;
+}
+
+/* ファイル管理 - ファイルのアップロード */
+table.plugin td[style*="padding-left:50px"] {
+  padding-left: 0 !important;
+}
+
+/* 自動タグエディター */
+table[cellpadding*="3"] {
+  width: 80% !important;
+}
+
+table[cellpadding*="3"] td,
+table[cellpadding*="3"] td table td {
+  width: 40%;
+}
+
+table[cellpadding*="3"] td table {
+  width: 240px !important;
+}
+
+textarea[name*="replacement"] {
+  width: 100% !important;
+}
+
+table[cellpadding*="3"] td p {
+  width: 100%;
+  word-break: break-all;
+}
+
+/* ログビュワー */
+.block-center-content input[name="viewlog"],
+.block-center-content input[name="clearlog"] {
+  display: block;
+  padding: 20px 20px 40px;
+}
+
+/* for hamburger nav */
+body {
+  overflow-x: hidden;
+  padding: 0;
+  background: #333333;
+  color: #ffffff;
+}
+
+.s_nav_btn {
+  display: block;
+  margin: 0;
+}
+
+div#container {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+}
+
+a[href="#navigation"],
+a[href="#navigation"]:focus,
+a[href="#navigation"]:hover {
+  position: absolute;
+  overflow: hidden;
+  right: 0;
+  padding: 0.42em 0.6em 0.39em;
+  border: 0;
+  letter-spacing: -4px;
+  text-decoration: none;
+  color: #626262;
+  font-size: 2.28em;
+}
+
+a[href="#navigation"]:focus,
+a[href="#navigation"]:hover {
+  color: #4bab11;
+  outline: thin dotted;
+  outline-offset: 4px;
+}
+
+a[href="#navigation"]:after {
+  position: absolute;
+  content: "menu";
+  right: 46px;
+  top: 50px;
+  width: 10%;
+  height: 0;
+  font-size: 40%;
+  letter-spacing: 2px;
+  color: #626262;
+}
+
+a[href="#navigation"]:focus:after,
+a[href="#navigation"]:hover:after {
+  color: #367b0c;
+}
+
+[data-nav-visible="true"] a[href="#navigation"],
+[data-nav-visible="true"] a[href="#navigation"]:focus,
+[data-nav-visible="true"] a[href="#navigation"]:hover {
+  background: #333333;
+  color: #ffffff;
+}
+
+[data-nav-visible="true"] a[href="#navigation"]:after {
+  position: absolute;
+  content: "close";
+  right: 40px;
+  top: 50px;
+  width: 10%;
+  height: 0;
+  background: #333333;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+[data-nav-visible="true"] a[href="#navigation"]:focus,
+[data-nav-visible="true"] a[href="#navigation"]:hover,
+[data-nav-visible="true"] a[href="#navigation"]:focus:after,
+[data-nav-visible="true"] a[href="#navigation"]:hover:after {
+ color: #a1a5db;
+}
+
+/* off-canvas loaded styles */
+
+ div#container {
+  max-width: none;
+}
+ div#container #navigation {
+  position: absolute;
+  top: 0;
+  right: -228%;
+  width: 44%;
+  margin-top: 5px;
+  padding: 0;
+  background: #333333;
+  color: #ffffff;
+}
+
+div#container #navigation ul {
+  margin-top: 0;
+}
+
+div#container #navigation h2 {
+  display: none;
+}
+
+[data-nav-visible="true"] #navigation h2 {
+  position: absolute;
+  clip: rect(0,0,0,0);
+  margin: 0;
+  padding: 0;
+}
+
+div#container #navigation ul li,
+div#container #navigation ul li.menuitem {
+  background: #333333;
+  border: none;
+  color: #ffffff;
+}
+
+div#container #navigation ul li.menuitem a,
+div#container #navigation ul li.menuitem a:link,
+div#container #navigation ul li.menuitem a:visited,
+div#container #navigation ul li a,
+div#container #navigation ul li a:link,
+div#container #navigation ul li a:visited{
+  display: block;
+  padding: 0.5em;
+  background: #333333;
+  color: #ffffff;
+}
+
+div#container #navigation ul li.menuitem a:hover,
+div#container #navigation ul li.menuitem a:focus,
+div#container #navigation a:hover,
+div#container #navigation a:focus {
+  color: #a1a5db;
+}
+
+div#container #navigation ul li.menuitem a:focus,
+div#container #navigation a:focus {
+  outline: 2px dotted #a1a5db;
+}
+
+/* dynamic transitions */
+
+[data-nav-visible] {
+  position: relative;
+  -webkit-transition: transform 1s ease 0s;
+  transition: transform 1s ease 0s;
+}
+
+[data-nav-visible="true"] {
+  top: 0;
+  -webkit-transform: translate(-45%);
+  transform: translate(-45%);
+}
+
+[role="navigation"] {
+  -webkit-transition: transform 1s ease 0s;
+  transition: transform 1s ease 0s;
+}
+
+[data-nav-visible="true"] #navigation {
+  display: block;
+ -webkit-transform: translate(-418%);
+  transform: translate(-418%);
+}
+
+ [data-nav-visible="false"] {
+  top: 0;
+  left: 0;
+}
+
+[data-nav-visible="false"] #navigation {
+  display: none;
+}
+
+.v-h {
+  position: absolute;
+  display: inline;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: none;
+}
+
+[data-nav-visible="true"] main {
+  width: 100%;
+}
+
+[data-nav-visible="true"] {
+  margin-right: 45% !important;
+ }
+
+}
+
+/*-------------------------------------------------
+  MOBILE LAYOUT
+---------------------------------------------------*/
+
+@media only screen and (max-width: 480px) {
+
+div#container #header h1.site_name {
+  margin-right: 30px;
+}
+
+div#container #header p.site_slogan,
+div#container #header p.welcome_msg {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  color: #ffffff;
+}
+
+[data-nav-visible="false"] {
+  overflow: hidden;
+}
+
+/* 管理画面 */
+#admin-storyeditor_advanced-title,
+#admin-storyeditor-page_title,
+#admin-storyeditor_advanced-sid,
+#sel_editmode,
+#profile input[type="text"],
+#admin-mailform-fra,
+#admin-mailform-fraepost,
+#admin-mailform-subject,
+#admin-topiceditor-topic,
+#admin-topiceditor-tid,
+#admin-topiceditor-imageurl,
+#admin-blockeditor-title,
+#admin-blockeditor-help,
+#admin-feededitor-title,
+#admin-feededitor-feedlogo,
+#admin-feededitor-filename,
+#admin-serviceeditor-service_name,
+#admin-serviceeditor-service_site_url,
+#admin-serviceeditor-service_ping_url,
+#trackbackeditor-target,
+#trackbackeditor-blog_name,
+#trackbackeditor-url,
+#trackbackeditor-title,
+#pingbackform-target,
+#sp-advanced_editor-sp_format,
+#cmeditor-title_fixation,
+#cmeditor-title_variable,
+#cmeditor-php_function,
+#cmeditor-url,
+#cmeditor-mid,
+#cmeditor-class_name,
+#cmeditor-icon_url,
+#cmeditor-pattern,
+#config_main #bottom_buttons input,
+#admin-groupeditor-grp_descr,
+#admin-edituser-fullname,
+#admin-edituser-email,
+#admin-edituser-homepage {
+  width: 200px;
+}
+
+form#profile #save_button input[type="submit"] {
+  width: 40%;
+}
+
+div#leftblocks div#block-left-search,
+div#leftblocks div.block-left,
+div#rightblocks div.block-right,
+div#leftblocks div.block-list {
+  float: none;
+  width: auto;
+}
+
+div#container #footer ul {
+  margin: 0 auto;
+  padding: 2%;
+}
+
+div#container #footer ul li {
+  display: list-item;
+  margin: 0;
+}
+
+.powered_by,
+.execution_textandtime {
+  font-size: small;
+}
+
+}

@@ -1,0 +1,197 @@
+      <!-- footer.thtml { -->
+      </div>
+      <!-- } centerblocks -->
+
+      <!--[if !IE]> Win IE 6のバグを回避するために条件コメントを使用しています。 <![endif]-->
+      <!--[if !IE]> (複数の浮動要素を組み合わせた場合に、最後の浮動要素の内容が重複するバグ) <![endif]-->
+      <!--[if !IE]> } #centerblocks <![endif]-->
+      <div id="sub_nav">
+
+      {left_blocks}
+
+      {right_blocks}
+      </div>
+
+    </div>
+<!-- } #wrapper -->
+
+  </main>
+
+<hr class="separator"{xhtml}>
+
+  <!-- #footer { -->
+  <!-- フッタコンテナ -->
+  <footer id="footer">
+    <p class="back"><a href="#header">Back to Top</a></p>
+    <ul>
+      <li class="copyright_notice"><small>{copyright_notice}</small></li>
+      <li class="powered_by">{powered_by}&nbsp;<a href="http://www.geeklog.net/">Geeklog</a>&amp;<a href="http://www.geeklog.jp/">Geeklog Japanese</a>&nbsp;&amp;&nbsp;Theme&nbsp;by&nbsp;<a href="http://white-stage.com/">White&nbsp;Stage</a></li>
+      <!-- Theme by Fumito Arakawa as Phize (http://phize.net/) -->
+      <!-- Accessibility Modifid by Masuko Koeda as みるく (http://white-stage.com/) アクセシビリティチェック by B-line (http://www.b-lines.jp/) -->
+      <li class="execution_textandtime">{execution_textandtime}</li>
+    </ul>
+  </footer>  
+  <!-- } #footer -->
+</div>
+<!-- } #container -->
+
+    {plg_footercode}
+<script src="{layout_url}/javascript/jquery.tile.js"></script>
+<script>
+$(window).load(function() {
+$("div.featuredstorytext,div.storytext,div.archivestorytext").tile(3);
+   });
+</script>
+<script>
+$(function(){
+if (navigator.userAgent.indexOf('iPhone') > 0){
+$("head").append($('<meta name="viewport" content="width=device-width"{xhtml}>\n'));
+
+}else if(navigator.userAgent.indexOf('iPad') > 0){
+$("head").append($('<meta name="viewport" content="width=device-width"{xhtml}>\n'));
+}else{
+$("head").append($('<meta name="viewport" content="width=device-width"{xhtml}>\n'));
+}
+})
+</script>
+<script>
+
+/* 8. Progressive Hamburger by @heydonworks
+-----------------------------------------------------------------------------------------
+*/
+
+// Set up attributes etc
+
+$('[href="#navigation"]').attr({
+  'role': 'button',
+  'aria-controls': 'navigation',
+  'aria-expanded': 'false'
+});
+
+$('body > div').attr({
+  'data-nav-visible': 'false'
+});
+
+// Clone navigation landmark for landmarks dialog
+
+var landmark = $('#navigation').clone();
+
+landmark.addClass('v-h');
+landmark.appendTo('body');
+landmark.removeAttr('id');
+
+$('.v-h li').removeAttr('id');
+$('.v-h').attr({
+  'aria-hidden': 'true'
+  });
+
+// Basic open menu function
+
+var openMenu = function() {
+  $('body > div').attr({
+    'data-nav-visible': 'true'
+  });
+  $('[href="#navigation"]').attr({
+    'aria-expanded': 'true'
+  })
+  $('#navigation').attr({
+  'aria-hidden': 'false'
+  });
+  setTimeout(function() {
+    $('[href="#navigation"]').text('\u00D7');
+  }, 520);
+return false;
+}
+
+// Basic close menu function
+
+var closeMenu = function() {
+  $('body > div').attr({
+    'data-nav-visible': 'false'
+  });
+  $('[href="#navigation"]').attr({
+    'aria-expanded': 'false'
+  });
+  $('#navigation').attr({
+  'aria-hidden': 'true'
+  });
+  setTimeout(function() {
+    $('[href="#navigation"]').text('\u2630');
+  }, 520);
+return false;
+}
+
+// Run clicks on the navigation button
+
+$('[href="#navigation"]').on('click', function(e) {
+  e.preventDefault();
+  $(this).attr('aria-expanded') == 'true' ? closeMenu() : openMenu();
+});
+
+// At end of navigation block, return focus to navigation menu button
+$(document).ready(function(){
+if ($(window).width() < 785) { //ウインドウサイズが785px以下ならば
+
+  $('#navigation').attr({
+    'aria-hidden': 'true'
+  });
+
+$('.v-h').attr({
+  'aria-hidden': 'false'
+  });
+
+$('#navigation li:last-child a').on('keydown', function(e) {
+  if (e.keyCode === 9) {
+    if (!e.shiftKey) {
+      e.preventDefault();
+      $('[href="#navigation"]').focus();
+    }
+  }
+});
+
+// At start of navigation block, refocus close button on SHIFT+TAB
+
+$('#navigation li:first-child a').on('keydown', function(e) {
+  if (e.keyCode === 9) {
+    if (e.shiftKey) {
+      e.preventDefault();
+      $('[href="#navigation"]').focus();
+    }
+  }
+});
+
+// If the menu is visible, always TAB into it from the menu button
+
+$('[aria-expanded]').on('keydown', function(e) {
+  if (e.keyCode === 9) {
+    if ($(this).attr('aria-expanded') == 'true') {
+      if (!e.shiftKey) {
+        e.preventDefault();
+        $('#navigation li:first-child a').focus();
+      } else {
+        if (e.shiftKey) {
+          e.preventDefault();
+          $('#header').focus();
+        }
+      }
+    }
+  }
+});
+
+}
+});
+
+</script>
+
+<!-- 状況に応じて、HTMLのbody要素にclass属性値を指定するJavaScript
+     引数は左から、左ブロックコンテナ・中央ブロックコンテナ・右ブロックコンテナのid属性値 -->
+<script type="text/javascript">
+<!--
+  FixHTML('leftblocks', 'centerblocks', 'rightblocks');
+-->
+</script>
+
+<!-- } footer.thtml -->
+
+</body>
+</html>

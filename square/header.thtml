@@ -1,0 +1,74 @@
+{doctype}
+<html{html_attribute}{xmlns}>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset={charset}"{xhtml}>
+    <title>{page_title_and_site_name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5"{xhtml}>
+    <link rel="SHORTCUT ICON" href="{layout_url}/images/favicon.ico"{xhtml}>
+    <!-- <meta http-equiv="Pragma" content="no-cache"{xhtml}> -->
+    <link rel="start contents" href="{site_url}"{xhtml}>
+{feed_url}
+{rel_links}
+{plg_headercode}
+
+  </head>
+
+
+  <body dir="{direction}" class="{layout_columns}">
+<!-- header.thtml { -->
+
+<!-- #container { -->
+<!-- コンテナ -->
+<div id="container">
+  <p class="s_nav_btn"><a href="#navigation" title="ナビゲーションメニュー" aria-label="ナビゲーションメニュー">&#x2630;</a></p>
+
+  <!-- #side { -->
+  <div id="side">
+    <!-- #header { -->
+    <!-- ヘッダコンテナ -->
+    <header id="header" role="banner">
+
+      <h1 class="site_name"><a href="{site_url}"><img src="{layout_url}/images/custom/logo.png" width="285" height="38" alt="{site_name}"{xhtml}><!-- {site_name} --></a></h1>
+         <div class="site_message">
+           <p class="site_slogan">{site_slogan}</p>
+           <p class="welcome_msg">{welcome_msg_jp}&nbsp;{datetime}</p>
+         </div>
+    </header>
+    <!-- } #header -->
+
+    <hr class="separator"{xhtml}>
+  
+    <p class="skip"><a href="#centerblocks">本文へ</a></p>
+
+    <!-- #navigation { -->
+    <!-- グローバルナビゲーションコンテナ -->
+    <nav id="navigation" role="navigation">
+      <h2>グローバルナビゲーション</h2>
+      <ul>
+        {menu_elements}
+      </ul>
+    </nav>
+    <!-- } #navigation -->
+
+  </div>
+  <!-- } #side -->
+
+  <hr class="separator"{xhtml}>
+
+  <main role="main">
+
+    <!-- #wrapper { -->
+    <!-- ラッパー -->
+    <div id="wrapper">
+
+<!-- トップのみ表示するイメージ写真 [ -->
+<?php if( COM_onFrontpage() )  { echo CUSTOM_getStaticpage('site_image' ); } ?>
+<!-- トップのみ表示するイメージ写真 ] -->
+
+      <!-- 中央ブロックコンテナ -->
+      <div id="centerblocks">
+
+
+        {breadcrumb_trail}
+
+<!-- } header.thtml -->
